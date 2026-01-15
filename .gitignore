@@ -1,4 +1,5 @@
 /node_modules
+dist/
 /public/hot
 /public/storage
 /public/js/*
@@ -12,3 +13,29 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+#public/css/
+public/css/candidate.css
+public/css/company.css
+public/css/admin.css
+public/css/app.css
+public/css/candidate.css.map
+public/css/company.css.map
+public/css/admin.css.map
+public/css/app.css.map
+
+public/js/app.js
+public/js/app.js.LICENSE.txt
+public/js/admin.js
+public/js/company.js
+public/js/app.js.map
+
+.env
+.idea
+
+# Docker volumes
+db_mysql
+data
+
+# Ziggy generate
+resources/js/ziggy.js

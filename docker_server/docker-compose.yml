@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  webserver:
+    image: nginx:stable-alpine
+    container_name: nika_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /var/www/nika/current:/var/www/html
+      - /var/www/nika/shared/storage:/var/www/html/storage
+      - /var/www/nika/docker/nginx.candidate.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - nika
+
+  app:
+    build:
+      context: /var/www/nika/docker/php
+      dockerfile: php.dockerfile
+    container_name: nika_app
+    restart: unless-stopped
+    volumes:
+      - /var/www/nika/current:/var/www/html
+      - /var/www/nika/shared/storage:/var/www/html/storage
+      - /var/www/nika/shared/.env:/var/www/html/.env
+    networks:
+      - nika
+
+  worker:
+    build:
+      context: /var/www/nika/docker/php-worker
+    container_name: nika_worker
+    restart: unless-stopped
+    profiles: ["worker"]
+    volumes:
+      - /var/www/nika/current:/var/www/html
+      - /var/www/nika/shared/storage:/var/www/html/storage
+      - /var/www/nika/docker/php-worker/supervisord.d:/etc/supervisord.d
+    networks:
+      - nika
+
+networks:
+  nika:
