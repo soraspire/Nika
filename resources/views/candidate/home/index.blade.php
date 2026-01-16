@@ -28,7 +28,7 @@
             <div class="main-preview">
                 <div class="" style="width: 400px; color: white; font-size: 21px;">
                     <div>Connecting employers and candidates - Nika: Job search website in Vietnam!</div>
-                    <div class="pl-3">- Here Katarina, we can help you find a job that suits your true self.</div>
+                    <div class="pl-3">- Here Nami, we can help you find a job that suits your true self.</div>
                 </div>
             </div>
         </div>
