@@ -23,4 +23,7 @@ host('production')
     ->setRemoteUser('deployer')
     ->set('deploy_path', '/var/www/nika');
 
+after('deploy:symlink', function () {
+    run('sudo supervisorctl restart laravel-nika-queue:*');
+});
 after('deploy:failed', 'deploy:unlock');
