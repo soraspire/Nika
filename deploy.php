@@ -9,6 +9,9 @@ set('repository', 'git@github.com:soraspire/nika.git');
 set('branch', 'candidate');
 set('git_tty', true);
 
+set('release_name', function () {
+    return date('YmdHis');
+});
 set('keep_releases', 2);
 
 add('shared_files', ['.env']);
