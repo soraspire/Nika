@@ -39,3 +39,6 @@ data
 
 # Ziggy generate
 resources/js/ziggy.js
+
+/storage/*
+!/storage/.gitignore
